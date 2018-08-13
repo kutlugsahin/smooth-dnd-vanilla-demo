@@ -65,6 +65,11 @@ function initScene(colCount) {
 		innerContainers.push(innerContainer);
 		verticalContainerHolder.appendChild(innerContainer);
 		mainContainer.appendChild(draggable);
+
+		const draggable = document.createElement('div');
+		container.innerHTML = `
+			<div></div>
+		`
 	}
 
 	cardScene.appendChild(mainContainer);
@@ -74,6 +79,8 @@ function initScene(colCount) {
 		innerContainers
 	}
 }
+
+let verticalContainers;
 
 function main() {
 	const containers = initScene(5);
@@ -92,8 +99,8 @@ function main() {
 		onDrop: (p) => onDrop(p, containers.mainContainer)
 	});
 
-	containers.innerContainers.forEach(p => {
-		Container(p, {
+	verticalContainers = containers.innerContainers.map(p => {
+		return Container(p, {
 			groupName: 'cards',
 			onDrop: (q) => onDrop(q, p)
 		});
@@ -101,3 +108,11 @@ function main() {
 }
 
 main();
+
+const btn = document.getElementById('btn-setoptions');
+
+btn.addEventListener('click', function() {
+	verticalContainers[0].setOptions({
+		behaviour: 'copy'
+	})
+})

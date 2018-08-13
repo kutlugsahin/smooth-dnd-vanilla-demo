@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "parcel index.html -p 4400"
+    "start": "parcel index.html -p 4400",
+    "build": "parcel build"
   },
   "author": "",
   "license": "ISC",
@@ -12,6 +13,6 @@
     "parcel-bundler": "^1.9.7"
   },
   "dependencies": {
-    "smooth-dnd": "^0.5.7"
+    "smooth-dnd": "^0.5.9"
   }
 }
